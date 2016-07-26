@@ -21,7 +21,6 @@
 
 
 #include <comdef.h>
-#include <string.h>
 #include <Wbemidl.h>
 
 using namespace std;
