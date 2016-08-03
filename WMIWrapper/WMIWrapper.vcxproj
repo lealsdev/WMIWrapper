@@ -93,6 +93,7 @@
     </ClCompile>
     <ClCompile Include="GeneralDescriptions.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="NetworkAdapter.cpp" />
     <ClCompile Include="PointingDevice.cpp" />
     <ClCompile Include="Processor.cpp" />
     <ClCompile Include="stdafx.cpp">

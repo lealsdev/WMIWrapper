@@ -8,5 +8,6 @@ Until now, the following classes were implemented:
 - Pointing Device
 - Processor
 - Desktop Monitor
+- Network Adapter
 
 The project WMITest gives examples on how to use those classes.

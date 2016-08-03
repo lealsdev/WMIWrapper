@@ -225,8 +225,67 @@ void WriteDesktopMonitor()
 	}
 }
 
+void WriteNetworkAdapter(){
+
+	NetworkingDevice::CNetworkAdapter monitor;
+
+	list<NetworkingDevice::CNetworkAdapterData*> data = monitor.GetData();
+
+	list<NetworkingDevice::CNetworkAdapterData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "AdapterType: "					<<	(*iterator)->AdapterType				<< endl;
+		cout << "AdapterTypeID: "				<<	(*iterator)->AdapterTypeID				<< endl;
+		cout << "AutoSense: "					<<	(*iterator)->AutoSense					<< endl;
+		cout << "Availability: "				<<	(*iterator)->Availability				<< endl;
+		cout << "AvailabilityDesc: "			<<	(*iterator)->AvailabilityDesc			<< endl;
+		cout << "Caption: "						<<	(*iterator)->Caption					<< endl;
+		cout << "ConfigManagerErrorCode: "		<<	(*iterator)->ConfigManagerErrorCode		<< endl;
+		cout << "ConfigManagerErrorCodeDesc: "	<<	(*iterator)->ConfigManagerErrorCodeDesc	<< endl;
+		cout << "ConfigManagerUserConfig: "		<<	(*iterator)->ConfigManagerUserConfig	<< endl;
+		cout << "CreationClassName: "			<<	(*iterator)->CreationClassName			<< endl;
+		cout << "Description: "					<<	(*iterator)->Description				<< endl;
+		cout << "DeviceID: "					<<	(*iterator)->DeviceID					<< endl;
+		cout << "ErrorCleared: "				<<	(*iterator)->ErrorCleared				<< endl;
+		cout << "ErrorDescription: "			<<	(*iterator)->ErrorDescription			<< endl;
+		cout << "GUID: "						<<	(*iterator)->GUID						<< endl;
+		cout << "Index: "						<<	(*iterator)->Index						<< endl;
+		cout << "InstallDate: "					<<	(*iterator)->InstallDate				<< endl;
+		cout << "Installed: "					<<	(*iterator)->Installed					<< endl;
+		cout << "InterfaceIndex: "				<<	(*iterator)->InterfaceIndex				<< endl;
+		cout << "LastErrorCode: "				<<	(*iterator)->LastErrorCode				<< endl;
+		cout << "MACAddress: "					<<	(*iterator)->MACAddress					<< endl;
+		cout << "Manufacturer: "				<<	(*iterator)->Manufacturer				<< endl;
+		cout << "MaxNumberControlled: "			<<	(*iterator)->MaxNumberControlled		<< endl;
+		cout << "MaxSpeed: "					<<	(*iterator)->MaxSpeed					<< endl;
+		cout << "Name: "						<<	(*iterator)->Name						<< endl;
+		cout << "NetConnectionID: "				<<	(*iterator)->NetConnectionID			<< endl;
+		cout << "NetConnectionStatus: "			<<	(*iterator)->NetConnectionStatus		<< endl;
+		cout << "NetConnectionStatusDesc: "		<<	(*iterator)->NetConnectionStatusDesc	<< endl;
+		cout << "NetEnabled: "					<<	(*iterator)->NetEnabled					<< endl;
+		cout << "PermanentAddress: "			<<	(*iterator)->PermanentAddress			<< endl;
+		cout << "PhysicalAdapter: "				<<	(*iterator)->PhysicalAdapter			<< endl;
+		cout << "PNPDeviceID: "					<<	(*iterator)->PNPDeviceID				<< endl;
+		cout << "PowerManagementSupported: "	<<	(*iterator)->PowerManagementSupported	<< endl;
+		cout << "ProductName: "					<<	(*iterator)->ProductName				<< endl;
+		cout << "ServiceName: "					<<	(*iterator)->ServiceName				<< endl;
+		cout << "Speed: "						<<	(*iterator)->Speed						<< endl;
+		cout << "Status: "						<<	(*iterator)->Status						<< endl;
+		cout << "StatusInfo: "					<<	(*iterator)->StatusInfo					<< endl;
+		cout << "StatusInfoDesc: "				<<	(*iterator)->StatusInfoDesc				<< endl;
+		cout << "SystemCreationClassName: "		<<	(*iterator)->SystemCreationClassName	<< endl;
+		cout << "SystemName: "					<<	(*iterator)->SystemName					<< endl;
+		cout << "TimeOfLastReset: "				<<	(*iterator)->TimeOfLastReset			<< endl;
+	}
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	NetworkingDevice::CNetworkAdapter adapter;
+	adapter.GetData();
 
 	cout << "#########################################" << endl;
 	cout << "KeyBoard data" << endl;
@@ -250,6 +309,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Desktop monitor data" << endl;
 	cout << "#########################################" << endl;
 	WriteDesktopMonitor();
+	cout << endl << endl << endl;
+
+	cout << "#########################################" << endl;
+	cout << "Network adapter data" << endl;
+	cout << "#########################################" << endl;
+	WriteNetworkAdapter();
 	cout << endl << endl << endl;
 
 	int i = 0;

@@ -638,3 +638,41 @@ char* CGeneralDescriptions::GetDisplayTypeDescription(unsigned short displayType
 	}
 
 }
+
+char* CGeneralDescriptions::GetNetConnectionStatusDescription(unsigned short networkConnectionStatus){
+	
+	switch(networkConnectionStatus)
+	{
+	case 0:
+		return "Disconnected";
+	case 1:
+		return "Connecting";
+	case 2:
+		return "Connected";
+	case 3:
+		return "Disconnecting";
+	case 4:
+		return "Hardware Not Present";
+	case 5:
+		return "Hardware Disabled";
+	case 6:
+		return "Hardware Malfunction";
+	case 7:
+		return "Media Disconnected";
+	case 8:
+		return "Authenticating";
+	case 9:
+		return "Authentication Succeeded";
+	case 10:
+		return "Authentication Failed";
+	case 11:
+		return "Invalid Address";
+	case 12:
+		return "Credentials Required";
+	case 13:
+		return "Other";
+	default:
+		return "";
+	}
+
+}

@@ -22,6 +22,9 @@
     <Filter Include="Source Files\VideoMonitor">
       <UniqueIdentifier>{b3e39984-8e74-41c4-8af2-4dfb7b69dba7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\NetworkingDevice">
+      <UniqueIdentifier>{850a2fc2-d469-4f44-bba3-7d35a6ba1637}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="GeneralDescriptions.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkAdapter.cpp">
+      <Filter>Source Files\NetworkingDevice</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

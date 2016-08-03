@@ -192,6 +192,24 @@ unsigned int CWMIBase::GetUIntValue(IWbemClassObject* pclsObj, LPCWSTR propertyN
 	return value; 
 }
 
+unsigned int CWMIBase::GetULongValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
+
+	VARIANT variantValue;
+	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	if(FAILED(this->HResult))
+	{
+		VariantClear(&variantValue);
+		return 0;
+	}
+
+	unsigned long value = variantValue.uiVal;
+
+	VariantClear(&variantValue);
+
+	return value; 
+}
+
 BOOL CWMIBase::GetBoolValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 	
 	VARIANT variantValue;

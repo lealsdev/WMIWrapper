@@ -142,7 +142,6 @@ namespace InputDevices{
 	};
 }
 
-
 namespace MotherboardControllerPort{
 
 	//**************************************************
@@ -295,6 +294,75 @@ namespace VideoMonitor{
 		// and returns that list.
 		//**************************************************
 		std::list<VideoMonitor::CDesktopMonitorData*> GetData();		
+	};
+
+}
+
+namespace NetworkingDevice{
+
+	struct WMIWRAPPER_API CNetworkAdapterData{
+	
+		char*			AdapterType;
+		unsigned short	AdapterTypeID;
+		BOOL			AutoSense;
+		unsigned short  Availability;
+		char*			AvailabilityDesc;
+		char*			Caption;
+		unsigned int	ConfigManagerErrorCode;
+		char*			ConfigManagerErrorCodeDesc;
+		BOOL			ConfigManagerUserConfig;
+		char*			CreationClassName;
+		char*			Description;
+		char*			DeviceID;
+		BOOL			ErrorCleared;
+		char*			ErrorDescription;
+		char*			GUID;
+		unsigned int	Index;
+		char*			InstallDate;
+		BOOL			Installed;
+		unsigned int	InterfaceIndex;
+		unsigned int	LastErrorCode;
+		char*			MACAddress;
+		char*			Manufacturer;
+		unsigned int	MaxNumberControlled;
+		unsigned long	MaxSpeed;
+		char*			Name;
+		char*			NetConnectionID;
+		unsigned short  NetConnectionStatus;
+		char*			NetConnectionStatusDesc;
+		BOOL			NetEnabled;
+		char*			PermanentAddress;
+		BOOL			PhysicalAdapter;
+		char*			PNPDeviceID;
+		BOOL			PowerManagementSupported;
+		char*			ProductName;
+		char*			ServiceName;
+		unsigned long   Speed;
+		char*			Status;
+		unsigned short  StatusInfo;
+		char*			StatusInfoDesc;
+		char*			SystemCreationClassName;
+		char*			SystemName;
+		char*			TimeOfLastReset;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's Network adapter's data.
+	//**************************************************
+	class WMIWRAPPER_API CNetworkAdapter : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CNetworkAdapter(void);
+
+		//**************************************************
+		// Populates a list of Desktop monitor structures 
+		// and returns that list.
+		//**************************************************
+		std::list<CNetworkAdapterData*> GetData();		
 	};
 
 }

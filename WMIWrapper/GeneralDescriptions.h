@@ -90,4 +90,9 @@ public:
 	// Returns the poiting type description.
 	//**************************************************
 	static char* GetDisplayTypeDescription(unsigned short displayType);
+
+	//**************************************************
+	// Returns the network connection status description.
+	//**************************************************
+	static char* GetNetConnectionStatusDescription(unsigned short netConnectionStatus);
 };

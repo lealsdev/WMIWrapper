@@ -85,7 +85,7 @@ protected:
 	char* GetStringValue(IWbemClassObject*, LPCWSTR);
 
 	//**************************************************
-	// Returns a unsigned short value.
+	// Returns an unsigned short value.
 	//
 	// IWbemClassObject*: Contains the property value.
 	// LPCWSTR: The WMI property name.
@@ -93,12 +93,20 @@ protected:
 	unsigned short GetUShortValue(IWbemClassObject*, LPCWSTR);
 
 	//**************************************************
-	// Returns a unsigned int value.
+	// Returns an unsigned int value.
 	//
 	// IWbemClassObject*: Contains the property value.
 	// LPCWSTR: The WMI property name.
 	//**************************************************
 	unsigned int GetUIntValue(IWbemClassObject*, LPCWSTR);
+
+	//**************************************************
+	// Returns an unsigned long value.
+	//
+	// IWbemClassObject*: Contains the property value.
+	// LPCWSTR: The WMI property name.
+	//**************************************************
+	unsigned int GetULongValue(IWbemClassObject*, LPCWSTR);
 
 	//**************************************************
 	// Returns a BOOL value.
