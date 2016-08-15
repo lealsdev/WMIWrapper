@@ -14,9 +14,9 @@ using namespace std;
 void WriteKeyboardData()
 {
 	InputDevices::CKeyboard keyboard;
-	list<InputDevices::CKeyboardData*> data = keyboard.GetData();
+	list<InputDevices::KeyboardData*> data = keyboard.GetData();
 
-	list<InputDevices::CKeyboardData*>::iterator iterator;
+	list<InputDevices::KeyboardData*>::iterator iterator;
 
 	for(iterator = data.begin(); iterator != data.end(); ++iterator)
 	{
@@ -53,9 +53,9 @@ void WriteKeyboardData()
 void WritePointingDeviceData()
 {
 	InputDevices::CPointingDevice* pointingDevice = new InputDevices::CPointingDevice;
-	list<InputDevices::CPointingDeviceData*> data = pointingDevice->GetData();
+	list<InputDevices::PointingDeviceData*> data = pointingDevice->GetData();
 
-	list<InputDevices::CPointingDeviceData*>::iterator iterator;
+	list<InputDevices::PointingDeviceData*>::iterator iterator;
 
 	for(iterator = data.begin(); iterator != data.end(); ++iterator)
 	{
@@ -106,9 +106,9 @@ void WritePointingDeviceData()
 void WriteProcessorData()
 {
 	MotherboardControllerPort::CProcessor processor;
-	list<MotherboardControllerPort::CProcessorData*> data = processor.GetData();
+	list<MotherboardControllerPort::ProcessorData*> data = processor.GetData();
 
-	list<MotherboardControllerPort::CProcessorData*>::iterator iterator;
+	list<MotherboardControllerPort::ProcessorData*>::iterator iterator;
 
 	for(iterator = data.begin(); iterator != data.end(); ++iterator)
 	{
@@ -184,9 +184,9 @@ void WriteDesktopMonitor()
 {
 	VideoMonitor::CDesktopMonitor monitor;
 
-	list<VideoMonitor::CDesktopMonitorData*> data = monitor.GetData();
+	list<VideoMonitor::DesktopMonitorData*> data = monitor.GetData();
 
-	list<VideoMonitor::CDesktopMonitorData*>::iterator iterator;
+	list<VideoMonitor::DesktopMonitorData*>::iterator iterator;
 
 	for(iterator = data.begin(); iterator != data.end(); ++iterator)
 	{
@@ -229,9 +229,9 @@ void WriteNetworkAdapter(){
 
 	NetworkingDevice::CNetworkAdapter monitor;
 
-	list<NetworkingDevice::CNetworkAdapterData*> data = monitor.GetData();
+	list<NetworkingDevice::NetworkAdapterData*> data = monitor.GetData();
 
-	list<NetworkingDevice::CNetworkAdapterData*>::iterator iterator;
+	list<NetworkingDevice::NetworkAdapterData*>::iterator iterator;
 
 	for(iterator = data.begin(); iterator != data.end(); ++iterator)
 	{
@@ -281,11 +281,121 @@ void WriteNetworkAdapter(){
 
 }
 
+void WriteCDROMData(){
+
+	MassStorage::CCDROMDrive cdRomDrive;
+
+	list<MassStorage::CDROMDriveData*> data = cdRomDrive.GetData();
+
+	list<MassStorage::CDROMDriveData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "Availability: "				<<	(*iterator)->Availability				<< endl;
+		cout << "AvailabilityDesc: "			<<	(*iterator)->AvailabilityDesc			<< endl;
+		
+		
+		//cout << "Capabilities: "				<<	(*iterator)->Capabilities				<< endl;
+
+		cout << "********************************" << endl;
+		cout << "Capabilities: " << endl;
+
+		for (int i = 0; i < (*iterator)->CapabilitiesLen; ++i)
+		{
+			cout << (*iterator)->Capabilities[i] << endl;
+		}
+
+
+		cout << "CapabilityDescriptions: " << endl;
+		for (int i = 0; i < (*iterator)->CapabilitiesLen; ++i)
+		{
+			cout << (*iterator)->CapabilityDescriptions[i] << endl;
+		}
+		cout << "********************************" << endl;
+
+		
+		cout << "Caption: "						<<	(*iterator)->Caption					<< endl;
+		cout << "CompressionMethod: "			<<	(*iterator)->CompressionMethod			<< endl;
+		cout << "ConfigManagerErrorCode: "		<<	(*iterator)->ConfigManagerErrorCode		<< endl;
+		cout << "ConfigManagerErrorCodeDesc: "	<<	(*iterator)->ConfigManagerErrorCodeDesc	<< endl;
+		cout << "ConfigManagerUserConfig: "		<<	(*iterator)->ConfigManagerUserConfig	<< endl;
+		cout << "CreationClassName: "			<<	(*iterator)->CreationClassName			<< endl;
+		cout << "DefaultBlockSize: "			<<	(*iterator)->DefaultBlockSize			<< endl;
+		cout << "Description: "					<<	(*iterator)->Description				<< endl;
+		cout << "DeviceID: "					<<	(*iterator)->DeviceID					<< endl;
+		cout << "Drive: "						<<	(*iterator)->Drive						<< endl;
+		cout << "DriveIntegrity: "				<<	(*iterator)->DriveIntegrity				<< endl;
+		cout << "ErrorCleared: "				<<	(*iterator)->ErrorCleared				<< endl;
+		cout << "ErrorDescription: "			<<	(*iterator)->ErrorDescription			<< endl;
+		cout << "ErrorMethodology: "			<<	(*iterator)->ErrorMethodology			<< endl;
+		cout << "FileSystemFlags: "				<<	(*iterator)->FileSystemFlags			<< endl;
+		cout << "FileSystemFlagsEx: "			<<	(*iterator)->FileSystemFlagsEx			<< endl;
+		cout << "FileSystemFlagsExDesc: "		<<	(*iterator)->FileSystemFlagsExDesc		<< endl;
+		cout << "Id: "							<<	(*iterator)->Id							<< endl;
+		cout << "InstallDate: "					<<	(*iterator)->InstallDate				<< endl;
+		cout << "LastErrorCode: " 				<<	(*iterator)->LastErrorCode				<< endl;
+		cout << "Manufacturer: "				<<	(*iterator)->Manufacturer				<< endl;
+		cout << "MaxBlockSize: "				<<	(*iterator)->MaxBlockSize				<< endl;
+		cout << "MaximumComponentLength: "		<<	(*iterator)->MaximumComponentLength		<< endl;
+		cout << "MaxMediaSize: "				<<	(*iterator)->MaxMediaSize				<< endl;
+		cout << "MediaLoaded: "					<<	(*iterator)->MediaLoaded				<< endl;
+		cout << "MediaType: "					<<	(*iterator)->MediaType					<< endl;
+		cout << "MfrAssignedRevisionLevel: "	<<	(*iterator)->MfrAssignedRevisionLevel	<< endl;
+		cout << "MinBlockSize: "				<<	(*iterator)->MinBlockSize				<< endl;
+		cout << "Name: "						<<	(*iterator)->Name						<< endl;
+		cout << "NeedsCleaning: "				<<	(*iterator)->NeedsCleaning				<< endl;
+		cout << "NumberOfMediaSupported: "		<<	(*iterator)->NumberOfMediaSupported		<< endl;
+		cout << "PNPDeviceID: "					<<	(*iterator)->PNPDeviceID				<< endl;
+		cout << "PowerManagementSupported: "	<<	(*iterator)->PowerManagementSupported	<< endl;
+		cout << "RevisionLevel: "				<<	(*iterator)->RevisionLevel				<< endl;
+		cout << "SCSIBus: "						<<	(*iterator)->SCSIBus					<< endl;
+		cout << "SCSILogicalUnit: "				<<	(*iterator)->SCSILogicalUnit			<< endl;
+		cout << "SCSIPort: "					<<	(*iterator)->SCSIPort					<< endl;
+		cout << "SCSITargetId: "				<<	(*iterator)->SCSITargetId				<< endl;
+		cout << "SerialNumber: "				<<	(*iterator)->SerialNumber				<< endl;
+		cout << "Size: "						<<	(*iterator)->Size						<< endl;
+		cout << "Status: "						<<	(*iterator)->Status						<< endl;
+		cout << "StatusInfo: "					<<	(*iterator)->StatusInfo					<< endl;
+		cout << "StatusInfoDesc: "				<<	(*iterator)->StatusInfoDesc				<< endl;
+		cout << "SystemCreationClassName: "		<<	(*iterator)->SystemCreationClassName	<< endl;
+		cout << "SystemName: "					<<	(*iterator)->SystemName					<< endl;
+		cout << "TransferRate: "				<<	(*iterator)->TransferRate				<< endl;
+		cout << "VolumeName: "					<<	(*iterator)->VolumeName					<< endl;
+		cout << "VolumeSerialNumber: "			<<	(*iterator)->VolumeSerialNumber			<< endl;
+	}
+
+}
+
+void WriteAutochkSettingData(){
+
+	MassStorage::CAutochkSetting autochkSetting;
+
+	list<MassStorage::AutochkSettingData*> data = autochkSetting.GetData();
+
+	list<MassStorage::AutochkSettingData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "Caption: "			<<	(*iterator)->Caption		<< endl;
+		cout << "Description: "		<<	(*iterator)->Description	<< endl;		
+		cout << "SettingID: "		<<	(*iterator)->SettingID		<< endl;
+		cout << "UserInputDelay: "	<<	(*iterator)->UserInputDelay	<< endl;		
+	}
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	/*char** words[2];
 
-	NetworkingDevice::CNetworkAdapter adapter;
-	adapter.GetData();
+	char* wordA;
+	char* wordB;
+
+	words[0] = &wordA;
+	words[1] = &wordB;
+
+	return 0;*/
+
 
 	cout << "#########################################" << endl;
 	cout << "KeyBoard data" << endl;
@@ -315,6 +425,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Network adapter data" << endl;
 	cout << "#########################################" << endl;
 	WriteNetworkAdapter();
+	cout << endl << endl << endl;
+
+	cout << "#########################################" << endl;
+	cout << "CD ROM data" << endl;
+	cout << "#########################################" << endl;
+	WriteCDROMData();
+	cout << endl << endl << endl;
+
+	cout << "#########################################" << endl;
+	cout << "Auto chk setting data" << endl;
+	cout << "#########################################" << endl;
+	WriteAutochkSettingData();
 	cout << endl << endl << endl;
 
 	int i = 0;

@@ -227,3 +227,88 @@ BOOL CWMIBase::GetBoolValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 
 	return value; 
 }
+
+void CWMIBase::GetCharArrayPointer(IWbemClassObject* pclsObj, LPCWSTR propertyName, char** words)
+{
+	VARIANT variantValue;
+
+	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	
+	SAFEARRAY* arr = variantValue.parray;
+
+	void *pVoid = 0;
+
+	SafeArrayLock(arr);
+
+	LONG uBound = -1, lBound = 0;
+	SafeArrayGetUBound(arr,1,&uBound);
+	SafeArrayGetLBound(arr,1,&lBound);
+	int nCount = uBound - lBound + 1;
+
+	BSTR stringValue;	
+	for(int i = 0; i<nCount; ++i)
+	{	
+		stringValue = ((BSTR*)(arr->pvData))[i];
+		char* lpszText = _com_util::ConvertBSTRToString(stringValue);
+		words[i] = lpszText;
+	}
+
+	SafeArrayUnlock(arr);
+	VariantClear(&variantValue);
+}
+
+double CWMIBase::GetDoubleValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
+
+	VARIANT variantValue;
+	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	if(FAILED(this->HResult))
+	{
+		VariantClear(&variantValue);
+		return 0;
+	}
+
+	double value = variantValue.dblVal;
+
+	VariantClear(&variantValue);
+
+	return value; 
+}
+
+long* CWMIBase::GetLongArray(IWbemClassObject* pclsObj, LPCWSTR propertyName)
+{
+	VARIANT variantValue;
+	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	void *pVoid = 0;
+
+	HRESULT hr = SafeArrayAccessData(variantValue.parray, &pVoid);
+
+	long *pLong = reinterpret_cast<long*>(pVoid);
+
+	VariantClear(&variantValue);
+
+	return pLong;
+}
+
+int CWMIBase::GetSafeArrayPropertyLength(IWbemClassObject* pclsObj, LPCWSTR propertyName){
+
+	VARIANT variantValue;
+
+	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	
+	SAFEARRAY* arr = variantValue.parray;
+
+	SafeArrayLock(arr);
+
+	LONG uBound = -1, lBound = 0;
+	SafeArrayGetUBound(arr,1,&uBound);
+	SafeArrayGetLBound(arr,1,&lBound);
+
+	SafeArrayUnlock(arr);
+	VariantClear(&variantValue);
+	
+
+	return uBound - lBound + 1;
+
+}

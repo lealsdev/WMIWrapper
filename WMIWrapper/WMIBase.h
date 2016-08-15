@@ -114,7 +114,40 @@ protected:
 	// IWbemClassObject*: Contains the property value.
 	// LPCWSTR: The WMI property name.
 	//**************************************************
-	BOOL GetBoolValue(IWbemClassObject*, LPCWSTR);			
+	BOOL GetBoolValue(IWbemClassObject*, LPCWSTR);		
+
+	//**************************************************
+	// Populates a char**.
+	//
+	// IWbemClassObject*: Contains the property value.
+	// LPCWSTR: The WMI property name.
+	// char**: Pointer to a char array.
+	//**************************************************
+	void GetCharArrayPointer(IWbemClassObject*, LPCWSTR, char**);
+
+	//**************************************************
+	// Returns a double value.
+	//
+	// IWbemClassObject*: Contains the property value.
+	// LPCWSTR: The WMI property name.
+	//**************************************************
+	double GetDoubleValue(IWbemClassObject*, LPCWSTR);
+
+	//**************************************************
+	// Returns a long array.
+	//
+	// IWbemClassObject*: Contains the property value.
+	// LPCWSTR: The WMI property name.
+	//**************************************************
+	long* GetLongArray(IWbemClassObject*, LPCWSTR);
+
+	//**************************************************
+	// Returns a SafeArray length.
+	//
+	// IWbemClassObject*: Contains the property value.
+	// LPCWSTR: The WMI property name.
+	//**************************************************
+	int GetSafeArrayPropertyLength(IWbemClassObject*, LPCWSTR);
 
 private:
 	//**************************************************

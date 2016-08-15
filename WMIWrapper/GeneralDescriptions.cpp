@@ -676,3 +676,43 @@ char* CGeneralDescriptions::GetNetConnectionStatusDescription(unsigned short net
 	}
 
 }
+
+char* CGeneralDescriptions::GetFileSystemFlagsExDescription(unsigned int fileSystemFlagsEx){
+	
+	switch(fileSystemFlagsEx)
+	{
+	case 1:
+		return "Case Sensitive Search";
+	case 2:
+		return "Case Preserved Names";
+	case 4:
+		return "Unicode On Disk";
+	case 8:
+		return "Persistent ACLs";
+	case 16:
+		return "File Compression";
+	case 32:
+		return "Volume Quotas";
+	case 64:
+		return "Supports Sparse Files";
+	case 128:
+		return "Supports Reparse Points";
+	case 256:
+		return "Supports Remote Storage";
+	case 16384:
+		return "Supports Long Names";
+	case 32768:
+		return "Volume Is Compressed";
+	case 524289:
+		return "Read Only Volume";
+	case 65536:
+		return "Supports Object IDS";
+	case 131072:
+		return "Supports Encryption";
+	case 262144:
+		return "Supports Named Streams";
+	default:
+		return "";
+	}
+
+}

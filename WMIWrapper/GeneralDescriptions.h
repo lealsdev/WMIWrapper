@@ -95,4 +95,9 @@ public:
 	// Returns the network connection status description.
 	//**************************************************
 	static char* GetNetConnectionStatusDescription(unsigned short netConnectionStatus);
+
+	//**************************************************
+	// Returns the file system flags ex description.
+	//**************************************************
+	static char* GetFileSystemFlagsExDescription(unsigned int fileSystemFlagsEx);
 };

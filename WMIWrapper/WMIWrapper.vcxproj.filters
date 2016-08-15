@@ -25,6 +25,9 @@
     <Filter Include="Source Files\NetworkingDevice">
       <UniqueIdentifier>{850a2fc2-d469-4f44-bba3-7d35a6ba1637}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MassStorage">
+      <UniqueIdentifier>{549c473f-ebfe-4e99-9001-775be6e1dc59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -73,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="NetworkAdapter.cpp">
       <Filter>Source Files\NetworkingDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="CDROM.cpp">
+      <Filter>Source Files\MassStorage</Filter>
+    </ClCompile>
+    <ClCompile Include="AutochkSetting.cpp">
+      <Filter>Source Files\MassStorage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

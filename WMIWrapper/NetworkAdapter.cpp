@@ -31,14 +31,14 @@ NetworkingDevice::CNetworkAdapter::CNetworkAdapter(){
 
 }
 
-std::list<NetworkingDevice::CNetworkAdapterData*> NetworkingDevice::CNetworkAdapter::GetData(){
+std::list<NetworkingDevice::NetworkAdapterData*> NetworkingDevice::CNetworkAdapter::GetData(){
 
 	IWbemClassObject *pclsObj = NULL;
     ULONG uReturn = 0;
 
-	std::list<NetworkingDevice::CNetworkAdapterData*> networkAdapters;
+	std::list<NetworkingDevice::NetworkAdapterData*> networkAdapters;
 
-	NetworkingDevice::CNetworkAdapterData* networkAdapterData;
+	NetworkingDevice::NetworkAdapterData* networkAdapterData;
 
 	if(!this->MakeWMIRequest(L"SELECT * FROM Win32_NetworkAdapter"))
 		return networkAdapters;
@@ -49,7 +49,7 @@ std::list<NetworkingDevice::CNetworkAdapterData*> NetworkingDevice::CNetworkAdap
         if(0 == uReturn)
             break;
 
-		networkAdapterData = new NetworkingDevice::CNetworkAdapterData;
+		networkAdapterData = new NetworkingDevice::NetworkAdapterData;
 
 		this->GetStringValue(pclsObj, L"NetworkAdresses");
 

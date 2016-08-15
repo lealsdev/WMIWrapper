@@ -30,14 +30,14 @@ MotherboardControllerPort::CProcessor::CProcessor(){
 	return;
 }
 
-std::list<MotherboardControllerPort::CProcessorData*> MotherboardControllerPort::CProcessor::GetData(){
+std::list<MotherboardControllerPort::ProcessorData*> MotherboardControllerPort::CProcessor::GetData(){
 
 	IWbemClassObject *pclsObj = NULL;
     ULONG uReturn = 0;
 
-	std::list<MotherboardControllerPort::CProcessorData*> processors;
+	std::list<MotherboardControllerPort::ProcessorData*> processors;
 	
-	MotherboardControllerPort::CProcessorData* processorsData;	
+	MotherboardControllerPort::ProcessorData* processorsData;	
 
 	if(!this->MakeWMIRequest(L"SELECT * FROM Win32_Processor"))
 		return processors;
@@ -48,7 +48,7 @@ std::list<MotherboardControllerPort::CProcessorData*> MotherboardControllerPort:
         if(0 == uReturn)
             break;
 
-		processorsData = new MotherboardControllerPort::CProcessorData;
+		processorsData = new MotherboardControllerPort::ProcessorData;
 
 		processorsData->AddressWidth = this->GetUShortValue(pclsObj, L"AddressWidth");
 

@@ -22,13 +22,12 @@
 #include "WMIBase.h"
 #include <list>
 
-
 namespace InputDevices{
 
 	//**************************************************
 	// This struct contains all Keyboard values.
 	//**************************************************
-	struct WMIWRAPPER_API CKeyboardData{
+	struct WMIWRAPPER_API KeyboardData{
 	public:
 		unsigned short	Availability;
 		char*			AvailabilityDesc;
@@ -73,13 +72,13 @@ namespace InputDevices{
 		// Populates a list of keyboard structures and 
 		// returns that list.
 		//**************************************************
-		std::list<InputDevices::CKeyboardData*> GetData();
+		std::list<InputDevices::KeyboardData*> GetData();
 	};
 
 	//**************************************************
 	// This struct contains all pointing device values.
 	//**************************************************
-	struct WMIWRAPPER_API CPointingDeviceData{
+	struct WMIWRAPPER_API PointingDeviceData{
 		
 		unsigned short	Availability;
 		char*			AvailabilityDesc;
@@ -137,7 +136,7 @@ namespace InputDevices{
 		// Populates a list of Pointing Device structures and 
 		// returns that list.
 		//**************************************************
-		std::list<InputDevices::CPointingDeviceData*> GetData();
+		std::list<InputDevices::PointingDeviceData*> GetData();
 
 	};
 }
@@ -147,7 +146,7 @@ namespace MotherboardControllerPort{
 	//**************************************************
 	// This struct contains all processor values.
 	//**************************************************
-	struct WMIWRAPPER_API CProcessorData{
+	struct WMIWRAPPER_API ProcessorData{
 
 		unsigned short	AddressWidth;
 		unsigned short	Architecture;
@@ -232,7 +231,7 @@ namespace MotherboardControllerPort{
 		// Populates a list of Processor structures and 
 		// returns that list.
 		//**************************************************
-		std::list<MotherboardControllerPort::CProcessorData*> GetData();
+		std::list<MotherboardControllerPort::ProcessorData*> GetData();
 		
 	};
 }
@@ -242,7 +241,7 @@ namespace VideoMonitor{
 	//**************************************************
 	// This struct contains all desktop monitor values.
 	//**************************************************
-	struct WMIWRAPPER_API CDesktopMonitorData{
+	struct WMIWRAPPER_API DesktopMonitorData{
 	
 		unsigned short	Availability;
 		char*			AvailabilityDesc;
@@ -293,14 +292,14 @@ namespace VideoMonitor{
 		// Populates a list of Desktop monitor structures 
 		// and returns that list.
 		//**************************************************
-		std::list<VideoMonitor::CDesktopMonitorData*> GetData();		
+		std::list<VideoMonitor::DesktopMonitorData*> GetData();		
 	};
 
 }
 
 namespace NetworkingDevice{
 
-	struct WMIWRAPPER_API CNetworkAdapterData{
+	struct WMIWRAPPER_API NetworkAdapterData{
 	
 		char*			AdapterType;
 		unsigned short	AdapterTypeID;
@@ -362,7 +361,119 @@ namespace NetworkingDevice{
 		// Populates a list of Desktop monitor structures 
 		// and returns that list.
 		//**************************************************
-		std::list<CNetworkAdapterData*> GetData();		
+		std::list<NetworkAdapterData*> GetData();		
+	};
+
+}
+
+namespace MassStorage{
+
+	//**************************************************
+	// This struct contains all cd rom drive values.
+	//**************************************************
+	struct WMIWRAPPER_API CDROMDriveData{
+		unsigned short	Availability;
+		char*			AvailabilityDesc;
+		long*			Capabilities;
+		int				CapabilitiesLen;
+		char**			CapabilityDescriptions;
+		char*			Caption;
+		char*			CompressionMethod;
+		unsigned int	ConfigManagerErrorCode;
+		char*			ConfigManagerErrorCodeDesc;
+		BOOL			ConfigManagerUserConfig;
+		char*			CreationClassName;
+		unsigned long	DefaultBlockSize;
+		char*			Description;
+		char*			DeviceID;
+		char*			Drive;
+		BOOL			DriveIntegrity;
+		BOOL			ErrorCleared;
+		char*			ErrorDescription;
+		char*			ErrorMethodology;
+		unsigned short	FileSystemFlags;
+		unsigned int	FileSystemFlagsEx;
+		char*			FileSystemFlagsExDesc;
+		char*			Id;
+		char*			InstallDate;
+		unsigned int	LastErrorCode;
+		char*			Manufacturer;
+		unsigned long	MaxBlockSize;
+		unsigned int	MaximumComponentLength;
+		unsigned long	MaxMediaSize;
+		BOOL			MediaLoaded;
+		char*			MediaType;
+		char*			MfrAssignedRevisionLevel;
+		unsigned long	MinBlockSize;
+		char*			Name;
+		BOOL			NeedsCleaning;
+		unsigned int	NumberOfMediaSupported;
+		char*			PNPDeviceID;
+		BOOL			PowerManagementSupported;
+		char*			RevisionLevel;
+		unsigned int	SCSIBus;
+		unsigned short	SCSILogicalUnit;
+		unsigned short	SCSIPort;
+		unsigned short	SCSITargetId;
+		char*			SerialNumber;
+		unsigned long	Size;
+		char*			Status;
+		unsigned short	StatusInfo;
+		char*			StatusInfoDesc;
+		char*			SystemCreationClassName;
+		char*			SystemName;
+		double			TransferRate;
+		char*			VolumeName;
+		char*			VolumeSerialNumber;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's CD Rom drive's data.
+	//**************************************************
+	class WMIWRAPPER_API CCDROMDrive : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CCDROMDrive(void);
+
+		//**************************************************
+		// Populates a list of CD ROM Drive structures 
+		// and returns that list.
+		//**************************************************
+		std::list<CDROMDriveData*> GetData();		
+	};
+
+	//**************************************************
+	// This struct contains all auto chk setting values.
+	//**************************************************
+	struct WMIWRAPPER_API AutochkSettingData{
+
+		char*			Caption;
+		char*			Description;
+		char*			SettingID;
+		unsigned int	UserInputDelay;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's auto chk setting's data.
+	//**************************************************
+	class WMIWRAPPER_API CAutochkSetting : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CAutochkSetting(void);
+
+		//**************************************************
+		// Populates a list of auto chk setting structures 
+		// and returns that list.
+		//**************************************************
+		std::list<AutochkSettingData*> GetData();		
 	};
 
 }

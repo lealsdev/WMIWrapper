@@ -30,14 +30,14 @@ VideoMonitor::CDesktopMonitor::CDesktopMonitor(){
 	return;
 }
 
-std::list<VideoMonitor::CDesktopMonitorData*> VideoMonitor::CDesktopMonitor::GetData(){
+std::list<VideoMonitor::DesktopMonitorData*> VideoMonitor::CDesktopMonitor::GetData(){
 
 	IWbemClassObject *pclsObj = NULL;
     ULONG uReturn = 0;
 
-	std::list<VideoMonitor::CDesktopMonitorData*> desktopMonitors;
+	std::list<VideoMonitor::DesktopMonitorData*> desktopMonitors;
 	
-	VideoMonitor::CDesktopMonitorData* desktopMonitorsData;	
+	VideoMonitor::DesktopMonitorData* desktopMonitorsData;	
 
 	if(!this->MakeWMIRequest(L"SELECT * FROM Win32_DesktopMonitor"))
 		return desktopMonitors;
@@ -48,7 +48,7 @@ std::list<VideoMonitor::CDesktopMonitorData*> VideoMonitor::CDesktopMonitor::Get
         if(0 == uReturn)
             break;
 
-		desktopMonitorsData = new VideoMonitor::CDesktopMonitorData;
+		desktopMonitorsData = new VideoMonitor::DesktopMonitorData;
 
 		desktopMonitorsData->Availability = this->GetUShortValue(pclsObj, L"Availability");
 		desktopMonitorsData->AvailabilityDesc = CGeneralDescriptions::GetAvailabilityDescription(desktopMonitorsData->Availability);

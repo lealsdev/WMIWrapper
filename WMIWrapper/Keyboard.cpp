@@ -30,14 +30,14 @@ InputDevices::CKeyboard::CKeyboard(){
 	return;
 }
 
-std::list<InputDevices::CKeyboardData*> InputDevices::CKeyboard::GetData(){
+std::list<InputDevices::KeyboardData*> InputDevices::CKeyboard::GetData(){
 
 	IWbemClassObject *pclsObj = NULL;
     ULONG uReturn = 0;
 
-	std::list<InputDevices::CKeyboardData*> keyboards;
+	std::list<InputDevices::KeyboardData*> keyboards;
 	
-	InputDevices::CKeyboardData* keyboardData;	
+	InputDevices::KeyboardData* keyboardData;	
 
 	if(!this->MakeWMIRequest(L"SELECT * FROM Win32_Keyboard"))
 		return keyboards;
@@ -48,7 +48,7 @@ std::list<InputDevices::CKeyboardData*> InputDevices::CKeyboard::GetData(){
         if(0 == uReturn)
             break;
 
-		keyboardData = new InputDevices::CKeyboardData;
+		keyboardData = new InputDevices::KeyboardData;
 
 		keyboardData->Availability = this->GetUShortValue(pclsObj, L"Availability");
 		keyboardData->AvailabilityDesc = CGeneralDescriptions::GetAvailabilityDescription(keyboardData->Availability);

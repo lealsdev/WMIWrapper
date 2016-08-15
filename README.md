@@ -9,5 +9,7 @@ Until now, the following classes were implemented:
 - Processor
 - Desktop Monitor
 - Network Adapter
+- CD ROM
+- Auto chk Setting
 
 The project WMITest gives examples on how to use those classes.

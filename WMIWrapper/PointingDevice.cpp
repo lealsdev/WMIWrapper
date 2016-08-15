@@ -30,14 +30,14 @@ InputDevices::CPointingDevice::CPointingDevice(){
 	return;
 }
 
-std::list<InputDevices::CPointingDeviceData*> InputDevices::CPointingDevice::GetData(){
+std::list<InputDevices::PointingDeviceData*> InputDevices::CPointingDevice::GetData(){
 
 	IWbemClassObject *pclsObj = NULL;
     ULONG uReturn = 0;
 
-	std::list<InputDevices::CPointingDeviceData*> pointingDevices;
+	std::list<InputDevices::PointingDeviceData*> pointingDevices;
 	
-	InputDevices::CPointingDeviceData* pointingDeviceData;	
+	InputDevices::PointingDeviceData* pointingDeviceData;	
 
 	if(!this->MakeWMIRequest(L"SELECT * FROM Win32_PointingDevice"))
 		return pointingDevices;
@@ -48,7 +48,7 @@ std::list<InputDevices::CPointingDeviceData*> InputDevices::CPointingDevice::Get
         if(0 == uReturn)
             break;
 
-		pointingDeviceData = new InputDevices::CPointingDeviceData;
+		pointingDeviceData = new InputDevices::PointingDeviceData;
 
 		pointingDeviceData->Availability = this->GetUShortValue(pclsObj, L"Availability");
 		pointingDeviceData->AvailabilityDesc = CGeneralDescriptions::GetAvailabilityDescription(pointingDeviceData->Availability);
