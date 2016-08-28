@@ -53,9 +53,9 @@ std::list<MassStorage::AutochkSettingData*> MassStorage::CAutochkSetting::GetDat
 		autochkSettingData->UserInputDelay = this->GetUIntValue(pclsObj, L"UserInputDelay");
 
 		autochkSettings.push_back(autochkSettingData);
-	}
 
-	pclsObj->Release();
+		pclsObj->Release();
+	}
 
 	return autochkSettings;
 }

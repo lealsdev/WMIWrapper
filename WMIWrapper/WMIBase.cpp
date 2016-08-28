@@ -136,7 +136,7 @@ char* CWMIBase::GetStringValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 
 	VARIANT variantValue;
 	
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 	
 	if(FAILED(this->HResult) || variantValue.vt != VT_BSTR)
 	{
@@ -159,7 +159,7 @@ unsigned short CWMIBase::GetUShortValue(IWbemClassObject* pclsObj, LPCWSTR prope
 
 	VARIANT variantValue;
 
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 	
 	if(FAILED(this->HResult))
 	{
@@ -177,7 +177,7 @@ unsigned short CWMIBase::GetUShortValue(IWbemClassObject* pclsObj, LPCWSTR prope
 unsigned int CWMIBase::GetUIntValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 
 	VARIANT variantValue;
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 
 	if(FAILED(this->HResult))
 	{
@@ -195,7 +195,7 @@ unsigned int CWMIBase::GetUIntValue(IWbemClassObject* pclsObj, LPCWSTR propertyN
 unsigned int CWMIBase::GetULongValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 
 	VARIANT variantValue;
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 
 	if(FAILED(this->HResult))
 	{
@@ -213,7 +213,7 @@ unsigned int CWMIBase::GetULongValue(IWbemClassObject* pclsObj, LPCWSTR property
 BOOL CWMIBase::GetBoolValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 	
 	VARIANT variantValue;
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 
 	if(FAILED(this->HResult))
 	{
@@ -232,7 +232,13 @@ void CWMIBase::GetCharArrayPointer(IWbemClassObject* pclsObj, LPCWSTR propertyNa
 {
 	VARIANT variantValue;
 
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	if(FAILED(this->HResult))
+	{
+		VariantClear(&variantValue);
+		return;
+	}
 	
 	SAFEARRAY* arr = variantValue.parray;
 
@@ -260,7 +266,7 @@ void CWMIBase::GetCharArrayPointer(IWbemClassObject* pclsObj, LPCWSTR propertyNa
 double CWMIBase::GetDoubleValue(IWbemClassObject* pclsObj, LPCWSTR propertyName){
 
 	VARIANT variantValue;
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
 
 	if(FAILED(this->HResult))
 	{
@@ -278,11 +284,17 @@ double CWMIBase::GetDoubleValue(IWbemClassObject* pclsObj, LPCWSTR propertyName)
 long* CWMIBase::GetLongArray(IWbemClassObject* pclsObj, LPCWSTR propertyName)
 {
 	VARIANT variantValue;
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	if(FAILED(this->HResult))
+	{
+		VariantClear(&variantValue);
+		return NULL;
+	}
 
 	void *pVoid = 0;
 
-	HRESULT hr = SafeArrayAccessData(variantValue.parray, &pVoid);
+	SafeArrayAccessData(variantValue.parray, &pVoid);
 
 	long *pLong = reinterpret_cast<long*>(pVoid);
 
@@ -295,7 +307,13 @@ int CWMIBase::GetSafeArrayPropertyLength(IWbemClassObject* pclsObj, LPCWSTR prop
 
 	VARIANT variantValue;
 
-	pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+	this->HResult = pclsObj->Get(propertyName, 0, &variantValue, 0, 0);
+
+	if(FAILED(this->HResult))
+	{
+		VariantClear(&variantValue);
+		return 0;
+	}
 	
 	SAFEARRAY* arr = variantValue.parray;
 

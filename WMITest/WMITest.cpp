@@ -384,19 +384,47 @@ void WriteAutochkSettingData(){
 
 }
 
+void WriteFanData(){
+
+	CoolingDevice::CFan fan;
+
+	list<CoolingDevice::FanData*> data = fan.GetData();
+
+	list<CoolingDevice::FanData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "ActiveCooling: "				<<	(*iterator)->ActiveCooling				<< endl;
+		cout << "Availability: "				<<	(*iterator)->Availability				<< endl;		
+		cout << "AvailabilityDesc: "			<<	(*iterator)->AvailabilityDesc			<< endl;
+		cout << "Caption: "						<<	(*iterator)->Caption					<< endl;	
+		cout << "ConfigManagerErrorCode: "		<<	(*iterator)->ConfigManagerErrorCode		<< endl;
+		cout << "ConfigManagerErrorCodeDesc: "	<<	(*iterator)->ConfigManagerErrorCodeDesc	<< endl;
+		cout << "ConfigManagerUserConfig: "		<<	(*iterator)->ConfigManagerUserConfig	<< endl;
+		cout << "CreationClassName: "			<<	(*iterator)->CreationClassName			<< endl;
+		cout << "Description: "					<<	(*iterator)->Description				<< endl;
+		cout << "DesiredSpeed: "				<<	(*iterator)->DesiredSpeed				<< endl;
+		cout << "DeviceID: "					<<	(*iterator)->DeviceID					<< endl;
+		cout << "ErrorCleared: "				<<	(*iterator)->ErrorCleared				<< endl;
+		cout << "ErrorDescription: "			<<	(*iterator)->ErrorDescription			<< endl;
+		cout << "InstallDate: "					<<	(*iterator)->InstallDate				<< endl;
+		cout << "LastErrorCode: "				<<	(*iterator)->LastErrorCode				<< endl;
+		cout << "Name: "						<<	(*iterator)->Name						<< endl;
+		cout << "PNPDeviceID: "					<<	(*iterator)->PNPDeviceID				<< endl;
+		cout << "PowerManagementSupported: "	<<	(*iterator)->PowerManagementSupported	<< endl;
+		cout << "Status: "						<<	(*iterator)->Status						<< endl;
+		cout << "StatusInfo: "					<<	(*iterator)->StatusInfo					<< endl;
+		cout << "SystemCreationClassName: "		<<	(*iterator)->SystemCreationClassName	<< endl;
+		cout << "SystemName: "					<<	(*iterator)->SystemName					<< endl;
+		cout << "VariableSpeed: "				<<	(*iterator)->VariableSpeed				<< endl;
+		
+	}
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	/*char** words[2];
-
-	char* wordA;
-	char* wordB;
-
-	words[0] = &wordA;
-	words[1] = &wordB;
-
-	return 0;*/
-
-
+	
 	cout << "#########################################" << endl;
 	cout << "KeyBoard data" << endl;
 	cout << "#########################################" << endl;
@@ -437,6 +465,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Auto chk setting data" << endl;
 	cout << "#########################################" << endl;
 	WriteAutochkSettingData();
+	cout << endl << endl << endl;
+
+	cout << "#########################################" << endl;
+	cout << "Fan data" << endl;
+	cout << "#########################################" << endl;
+	WriteFanData();
 	cout << endl << endl << endl;
 
 	int i = 0;

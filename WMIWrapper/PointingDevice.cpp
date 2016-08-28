@@ -121,9 +121,9 @@ std::list<InputDevices::PointingDeviceData*> InputDevices::CPointingDevice::GetD
 		pointingDeviceData->SystemName = this->GetStringValue(pclsObj, L"SystemName");
 
 		pointingDevices.push_back(pointingDeviceData);
-    }
 
-	pclsObj->Release();
+		pclsObj->Release();
+    }
 
 	return pointingDevices;
 }

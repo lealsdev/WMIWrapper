@@ -172,9 +172,9 @@ std::list<MotherboardControllerPort::ProcessorData*> MotherboardControllerPort::
 		processorsData->VoltageCapsDesc = CGeneralDescriptions::GetVoltageCapsDescription(processorsData->VoltageCaps);
 
 		processors.push_back(processorsData);
-    }
 
-	pclsObj->Release();	
+		pclsObj->Release();	
+    }
 
 	return processors;
 }

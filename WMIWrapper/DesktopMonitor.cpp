@@ -110,9 +110,9 @@ std::list<VideoMonitor::DesktopMonitorData*> VideoMonitor::CDesktopMonitor::GetD
 
 		
 		desktopMonitors.push_back(desktopMonitorsData);
-    }
 
-	pclsObj->Release();
+		pclsObj->Release();
+    }
 
 	return desktopMonitors;
 }

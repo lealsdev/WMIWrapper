@@ -477,3 +477,57 @@ namespace MassStorage{
 	};
 
 }
+
+namespace CoolingDevice{
+
+	//**************************************************
+	// This struct contains all fan values.
+	//**************************************************
+	struct WMIWRAPPER_API FanData{
+	
+		BOOL			ActiveCooling;
+		unsigned short  Availability;
+		char*			AvailabilityDesc;
+		char*			Caption;
+		unsigned int	ConfigManagerErrorCode;
+		char*			ConfigManagerErrorCodeDesc;
+		BOOL			ConfigManagerUserConfig;
+		char*			CreationClassName;
+		char*			Description;
+		unsigned long   DesiredSpeed;
+		char*			DeviceID;
+		BOOL			ErrorCleared;
+		char*			ErrorDescription;
+		char*			InstallDate;
+		unsigned int	LastErrorCode;
+		char*			Name;
+		char*			PNPDeviceID;
+		BOOL			PowerManagementSupported;
+		char*			Status;
+		unsigned short  StatusInfo;
+		char*			SystemCreationClassName;
+		char*			SystemName;
+		BOOL			VariableSpeed;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's fan data.
+	//**************************************************
+	class WMIWRAPPER_API CFan : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CFan(void);
+
+		//**************************************************
+		// Populates a list of fan structures 
+		// and returns that list.
+		//**************************************************
+		std::list<FanData*> GetData();
+
+	};
+
+}

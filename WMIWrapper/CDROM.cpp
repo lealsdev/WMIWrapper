@@ -150,9 +150,9 @@ std::list<MassStorage::CDROMDriveData*> MassStorage::CCDROMDrive::GetData(){
 		cdromDriveData->VolumeSerialNumber = this->GetStringValue(pclsObj, L"VolumeSerialNumber");
 
 		cdromDrives.push_back(cdromDriveData);
-    }
 
-	pclsObj->Release();	
+		pclsObj->Release();	
+    }
 
 	return cdromDrives;
 }

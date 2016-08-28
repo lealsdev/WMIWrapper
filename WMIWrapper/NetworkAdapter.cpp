@@ -132,9 +132,9 @@ std::list<NetworkingDevice::NetworkAdapterData*> NetworkingDevice::CNetworkAdapt
 		networkAdapterData->TimeOfLastReset = this->GetStringValue(pclsObj, L"TimeOfLastReset");
 		
 		networkAdapters.push_back(networkAdapterData);
-	}
 
-	pclsObj->Release();
+		pclsObj->Release();
+	}
 
 	return networkAdapters;
 }

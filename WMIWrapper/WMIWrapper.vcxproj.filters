@@ -28,6 +28,9 @@
     <Filter Include="Source Files\MassStorage">
       <UniqueIdentifier>{549c473f-ebfe-4e99-9001-775be6e1dc59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CoolingDevice">
+      <UniqueIdentifier>{ece4afe5-9f4f-4277-b560-90798cb2fa5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="AutochkSetting.cpp">
       <Filter>Source Files\MassStorage</Filter>
+    </ClCompile>
+    <ClCompile Include="Fan.cpp">
+      <Filter>Source Files\CoolingDevice</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

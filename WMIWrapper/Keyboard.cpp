@@ -98,12 +98,10 @@ std::list<InputDevices::KeyboardData*> InputDevices::CKeyboard::GetData(){
 
 		keyboardData->SystemName = this->GetStringValue(pclsObj, L"SystemName");
 
-        
-
 		keyboards.push_back(keyboardData);
-    }
 
-	pclsObj->Release();
+		pclsObj->Release();
+    }
 
 	return keyboards;
 }

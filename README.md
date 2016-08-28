@@ -11,5 +11,6 @@ Until now, the following classes were implemented:
 - Network Adapter
 - CD ROM
 - Auto chk Setting
+- Fan
 
 The project WMITest gives examples on how to use those classes.
