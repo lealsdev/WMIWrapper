@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/. 
 //
-// Keyboard.cpp - Contains the CDesktopMonitor's implementation.
+// DesktopMonitor.cpp - Contains the CDesktopMonitor's implementation.
 // 
 // Email: lealves_82@yahoo.com.br
 // --------------------------------------------------------------------------------------------------------------------

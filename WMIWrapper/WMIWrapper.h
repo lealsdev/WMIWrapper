@@ -295,6 +295,47 @@ namespace VideoMonitor{
 		std::list<VideoMonitor::DesktopMonitorData*> GetData();		
 	};
 
+	//**************************************************
+	// This struct contains all display controller 
+	// configuration values.
+	//**************************************************
+	class WMIWRAPPER_API DisplayControllerConfigurationData{
+	public:
+		char*			Caption;
+		char*			Description;
+		char*			SettingID;
+		unsigned int	BitsPerPixel;
+		unsigned int	ColorPlanes;
+		unsigned int	DeviceEntriesInAColorTable;
+		unsigned int	DeviceSpecificPens;
+		unsigned int	HorizontalResolution;
+		char*			Name;
+		unsigned int	RefreshRate;
+		unsigned int	ReservedSystemPaletteEntries;
+		unsigned int	SystemPaletteEntries;
+		unsigned int	VerticalResolution;
+		char*			VideoMode;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's display controller configuration's data.
+	//**************************************************
+	class WMIWRAPPER_API CDisplayControllerConfiguration : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CDisplayControllerConfiguration(void);
+
+		//**************************************************
+		// Populates a list of Desktop monitor structures 
+		// and returns that list.
+		//**************************************************
+		std::list<VideoMonitor::DisplayControllerConfigurationData*> GetData();		
+	};
+
 }
 
 namespace NetworkingDevice{

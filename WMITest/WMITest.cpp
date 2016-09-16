@@ -422,6 +422,35 @@ void WriteFanData(){
 
 }
 
+void WriteDisplayControllerConfigurationData(){
+
+	VideoMonitor::CDisplayControllerConfiguration displayControllerConfiguration;
+
+	list<VideoMonitor::DisplayControllerConfigurationData*> data = displayControllerConfiguration.GetData();
+
+	list<VideoMonitor::DisplayControllerConfigurationData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "Caption: "							<<	(*iterator)->Caption						<< endl;
+		cout << "Description: "						<<	(*iterator)->Description					<< endl;		
+		cout << "SettingID: "						<<	(*iterator)->SettingID						<< endl;
+		cout << "BitsPerPixel: "					<<	(*iterator)->BitsPerPixel					<< endl;	
+		cout << "ColorPlanes: "						<<	(*iterator)->ColorPlanes					<< endl;
+		cout << "DeviceEntriesInAColorTable: "		<<	(*iterator)->DeviceEntriesInAColorTable		<< endl;
+		cout << "DeviceSpecificPens: "				<<	(*iterator)->DeviceSpecificPens				<< endl;
+		cout << "HorizontalResolution: "			<<	(*iterator)->HorizontalResolution			<< endl;
+		cout << "Name: "							<<	(*iterator)->Name							<< endl;
+		cout << "RefreshRate: "						<<	(*iterator)->RefreshRate					<< endl;
+		cout << "ReservedSystemPaletteEntries: "	<<	(*iterator)->ReservedSystemPaletteEntries	<< endl;
+		cout << "SystemPaletteEntries: "			<<	(*iterator)->SystemPaletteEntries			<< endl;
+		cout << "VerticalResolution: "				<<	(*iterator)->VerticalResolution				<< endl;
+		cout << "VideoMode: "						<<	(*iterator)->VideoMode						<< endl;
+		
+	}
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	
@@ -471,6 +500,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Fan data" << endl;
 	cout << "#########################################" << endl;
 	WriteFanData();
+	cout << endl << endl << endl;
+
+	cout << "#########################################" << endl;
+	cout << "Display Controller Configuration data" << endl;
+	cout << "#########################################" << endl;
+	WriteDisplayControllerConfigurationData();
 	cout << endl << endl << endl;
 
 	int i = 0;

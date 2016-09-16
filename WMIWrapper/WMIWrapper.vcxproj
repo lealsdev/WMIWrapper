@@ -85,6 +85,7 @@
     <ClCompile Include="AutochkSetting.cpp" />
     <ClCompile Include="CDROM.cpp" />
     <ClCompile Include="DesktopMonitor.cpp" />
+    <ClCompile Include="DisplayControllerConfiguration.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
