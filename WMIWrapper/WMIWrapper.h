@@ -330,8 +330,8 @@ namespace VideoMonitor{
 		CDisplayControllerConfiguration(void);
 
 		//**************************************************
-		// Populates a list of Desktop monitor structures 
-		// and returns that list.
+		// Populates a list of Display Controller 
+		// Configuration structures and returns that list.
 		//**************************************************
 		std::list<VideoMonitor::DisplayControllerConfigurationData*> GetData();		
 	};

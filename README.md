@@ -12,5 +12,6 @@ Until now, the following classes were implemented:
 - CD ROM
 - Auto chk Setting
 - Fan
+- Display Controller Configuration
 
 The project WMITest gives examples on how to use those classes.
