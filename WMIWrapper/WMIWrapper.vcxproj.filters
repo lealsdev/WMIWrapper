@@ -92,5 +92,8 @@
     <ClCompile Include="DisplayControllerConfiguration.cpp">
       <Filter>Source Files\VideoMonitor</Filter>
     </ClCompile>
+    <ClCompile Include="HeatPipe.cpp">
+      <Filter>Source Files\CoolingDevice</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

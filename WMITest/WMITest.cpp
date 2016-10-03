@@ -451,6 +451,42 @@ void WriteDisplayControllerConfigurationData(){
 
 }
 
+void WriteHeatPipeData(){
+
+	CoolingDevice::CHeatPipe heatPipe;
+
+	list<CoolingDevice::HeatPipeData*> data = heatPipe.GetData();
+
+	list<CoolingDevice::HeatPipeData*>::iterator iterator;
+
+	for(iterator = data.begin(); iterator != data.end(); ++iterator)
+	{
+		cout << "ActiveCooling: "				<<	(*iterator)->ActiveCooling 				<< endl;
+		cout << "Availability: "				<<	(*iterator)->Availability 				<< endl;		
+		cout << "AvailabilityDesc: "			<<	(*iterator)->AvailabilityDesc 			<< endl;
+		cout << "Caption: "						<<	(*iterator)->Caption 					<< endl;	
+		cout << "ConfigManagerErrorCode: "		<<	(*iterator)->ConfigManagerErrorCode 	<< endl;
+		cout << "ConfigManagerErrorCodeDesc: "	<<	(*iterator)->ConfigManagerErrorCodeDesc	<< endl;
+		cout << "ConfigManagerUserConfig: "		<<	(*iterator)->ConfigManagerUserConfig 	<< endl;
+		cout << "CreationClassName: "			<<	(*iterator)->CreationClassName 			<< endl;
+		cout << "Description: "					<<	(*iterator)->Description 				<< endl;
+		cout << "DeviceID: "					<<	(*iterator)->DeviceID 					<< endl;
+		cout << "ErrorCleared: "				<<	(*iterator)->ErrorCleared 				<< endl;
+		cout << "ErrorDescription: "			<<	(*iterator)->ErrorDescription 			<< endl;
+		cout << "InstallDate: "					<<	(*iterator)->InstallDate 				<< endl;
+		cout << "LastErrorCode: "				<<	(*iterator)->LastErrorCode 				<< endl;
+		cout << "Name: "						<<	(*iterator)->Name 						<< endl;
+		cout << "PNPDeviceID: "					<<	(*iterator)->PNPDeviceID 				<< endl;		
+		cout << "PowerManagementSupported: "	<<	(*iterator)->PowerManagementSupported	<< endl;
+		cout << "Status: "						<<	(*iterator)->Status 					<< endl;	
+		cout << "StatusInfo: "					<<	(*iterator)->StatusInfo 				<< endl;
+		cout << "SystemCreationClassName: "		<<	(*iterator)->SystemCreationClassName 	<< endl;
+		cout << "SystemName: "					<<	(*iterator)->SystemName 				<< endl;
+		
+	}
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	
@@ -506,6 +542,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << "Display Controller Configuration data" << endl;
 	cout << "#########################################" << endl;
 	WriteDisplayControllerConfigurationData();
+	cout << endl << endl << endl;
+
+
+	cout << "#########################################" << endl;
+	cout << "Heat Pipe data" << endl;
+	cout << "#########################################" << endl;
+	WriteHeatPipeData();
 	cout << endl << endl << endl;
 
 	int i = 0;

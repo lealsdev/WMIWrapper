@@ -96,6 +96,7 @@
     </ClCompile>
     <ClCompile Include="Fan.cpp" />
     <ClCompile Include="GeneralDescriptions.cpp" />
+    <ClCompile Include="HeatPipe.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="NetworkAdapter.cpp" />
     <ClCompile Include="PointingDevice.cpp" />

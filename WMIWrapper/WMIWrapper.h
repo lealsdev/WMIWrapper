@@ -571,4 +571,52 @@ namespace CoolingDevice{
 
 	};
 
+	//**************************************************
+	// This struct contains all heat pipe values.
+	//**************************************************
+	struct WMIWRAPPER_API HeatPipeData{
+	
+		BOOL			ActiveCooling;
+		unsigned short  Availability;
+		char*			AvailabilityDesc;
+		char*			Caption;
+		unsigned int	ConfigManagerErrorCode;
+		char*			ConfigManagerErrorCodeDesc;
+		BOOL			ConfigManagerUserConfig;
+		char*			CreationClassName;
+		char*			Description;
+		char*			DeviceID;
+		BOOL			ErrorCleared;
+		char*			ErrorDescription;
+		char*			InstallDate;
+		unsigned int	LastErrorCode;
+		char*			Name;
+		char*			PNPDeviceID;
+		BOOL			PowerManagementSupported;
+		char*			Status;
+		unsigned short  StatusInfo;
+		char*			SystemCreationClassName;
+		char*			SystemName;
+
+	};
+
+	//**************************************************
+	// This class contains all necessary methods to get
+	// WMI's heat pipe data.
+	//**************************************************
+	class WMIWRAPPER_API CHeatPipe : CWMIBase {
+	public:
+		//**************************************************
+		// Constructor.
+		//**************************************************
+		CHeatPipe(void);
+
+		//**************************************************
+		// Populates a list of heat pipe structures 
+		// and returns that list.
+		//**************************************************
+		std::list<HeatPipeData*> GetData();
+
+	};
+
 }
