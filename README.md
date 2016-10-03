@@ -13,5 +13,6 @@ Until now, the following classes were implemented:
 - Auto chk Setting
 - Fan
 - Display Controller Configuration
+- Heat Pipe
 
 The project WMITest gives examples on how to use those classes.
